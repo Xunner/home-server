@@ -21,5 +21,9 @@ func main() {
 	http.Handle("/", fs)
 	http.HandleFunc("/hello", helloHandler)
 
-	log.Fatal(http.ListenAndServe(":13579", nil))
+	go func() {
+		log.Fatal(http.ListenAndServeTLS(":443", "server.crt", "server.key", nil))
+	}()
+
+	log.Fatal(http.ListenAndServe(":80", nil))
 }
