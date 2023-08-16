@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -15,7 +16,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fmt.Println("Server start")
+	fmt.Println(time.Now().Format(time.RFC3339), "Server start")
 
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
