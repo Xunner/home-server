@@ -19,7 +19,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 func eventJsHandler(w http.ResponseWriter, r *http.Request) {
 	// log
 	queries := r.URL.Query()
-	log.Printf("RequestURI=%s, Header=%v, queries=%v", r.URL.RequestURI(), r.Header, queries)
+	//log.Printf("RequestURI=%s, Header=%v, queries=%v", r.URL.RequestURI(), r.Header, queries)
 
 	baseUrl := "https://analytics.tiktok.com/i18n/pixel/events.js"
 	params := url.Values{}
@@ -59,6 +59,8 @@ func eventJsHandler(w http.ResponseWriter, r *http.Request) {
 			w.Header().Add(key, value)
 		}
 	}
+	log.Printf("Got Header=%v", resp.Header)
+	log.Printf("Written Header=%v", w.Header())
 	// 设置响应的状态码为200 OK
 	w.WriteHeader(http.StatusOK)
 }
