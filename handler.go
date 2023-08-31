@@ -41,26 +41,23 @@ func eventJsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}(resp.Body)
 
-	// 读取响应体
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		log.Printf("io.ReadAll err: %v", err)
-	}
-
-	// Copy body
-	_, err = fmt.Fprintf(w, string(body))
-	if err != nil {
-		log.Printf("return body err: %v", err)
-		return
-	}
 	// Copy all headers
 	for key, values := range resp.Header {
 		for _, value := range values {
 			w.Header().Add(key, value)
 		}
 	}
-	log.Printf("Got Header=%v", resp.Header)
+
+	// Copy body
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Printf("io.ReadAll err: %v", err)
+	}
+	_, err = fmt.Fprintf(w, string(body))
+	if err != nil {
+		log.Printf("return body err: %v", err)
+		return
+	}
+
 	log.Printf("Written Header=%v", w.Header())
-	// 设置响应的状态码为200 OK
-	w.WriteHeader(http.StatusOK)
 }
