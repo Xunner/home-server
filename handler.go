@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"net/http"
+	"net/url"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -16,21 +18,42 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 func eventJsHandler(w http.ResponseWriter, r *http.Request) {
 	// log
-	reader, err := r.GetBody()
+	queries := r.URL.Query()
+	log.Printf("URI=%s, Header=%v, RequestURI=%s, queries=%v", r.URL.RequestURI(), r.Header, r.RequestURI, queries)
+
+	baseUrl := "https://analytics.tiktok.com/i18n/pixel/events.js"
+	params := url.Values{}
+	params.Add("sdkid", queries.Get("sdkid"))
+	params.Add("lib", queries.Get("lib"))
+
+	// 创建一个新的URL
+	fullUrl := fmt.Sprintf("%s?%s", baseUrl, params.Encode())
+
+	// 发送GET请求
+	resp, err := http.Get(fullUrl)
 	if err != nil {
-		log.Println(err)
+		log.Printf("http.Get err: %v", err)
 	}
-	var bs []byte
-	n, err := reader.Read(bs)
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			log.Printf("Body.Close() err: %v", err)
+		}
+	}(resp.Body)
+
+	// 读取响应体
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Println(err, n)
+		log.Printf("io.ReadAll err: %v", err)
 	}
-	log.Printf("URI=%s, Header=%v, body=%s", r.URL.RequestURI(), r.Header, string(bs))
+
+	// 打印响应体
+	fmt.Println(string(body))
 
 	// return
-	_, err = fmt.Fprintf(w, "On developing...")
+	_, err = fmt.Fprintf(w, string(body))
 	if err != nil {
-		log.Printf("eventJsHandler err: %v", err)
+		log.Printf("return body err: %v", err)
 		return
 	}
 }
