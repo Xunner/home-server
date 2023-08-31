@@ -47,9 +47,6 @@ func eventJsHandler(w http.ResponseWriter, r *http.Request) {
 		log.Printf("io.ReadAll err: %v", err)
 	}
 
-	// 打印响应体
-	fmt.Println(string(body))
-
 	// return
 	_, err = fmt.Fprintf(w, string(body))
 	if err != nil {
