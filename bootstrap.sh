@@ -17,7 +17,7 @@ fi
 go build
 
 if [ ! -d "output" ]; then
-  mkdir output
+  mkdir prev_output
 fi
 NOW=$(date '+%Y-%m-%d_%H_%M_%S')
 
