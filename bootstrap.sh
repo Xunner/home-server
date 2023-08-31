@@ -16,13 +16,14 @@ fi
 # build
 go build
 
-if [ ! -d "output" ]; then
-  mkdir prev_output
+PREV_OUTPUT_DIR=prev_output
+if [ ! -d "$PREV_OUTPUT_DIR" ]; then
+  mkdir $PREV_OUTPUT_DIR
 fi
 NOW=$(date '+%Y-%m-%d_%H_%M_%S')
 
 # run
-mv output.log prev_output/output_"$NOW".log
+mv output.log ./$PREV_OUTPUT_DIR/output_"$NOW".log
 nohup sudo ./home-server > output.log 2>&1 &
 
 sleep 1
