@@ -22,5 +22,7 @@ fi
 NOW=$(date '+%Y-%m-%d_%H_%M_%S')
 
 # run
-nohup sudo bash home-server > output/output_"$NOW".log 2>&1 &
+nohup sudo ./home-server > output/output_"$NOW".log 2>&1 &
+
+sleep 1
 cat output/output_"$NOW".log
