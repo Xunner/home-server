@@ -1,5 +1,5 @@
 #! /usr/bin bash
-
+cd ~/home-server || exit 3
 # 查找占用443端口的进程ID
 PREV_PID=$(sudo lsof -t -i:443)
 
@@ -13,11 +13,14 @@ if [[ -n $PREV_PID ]]; then
   echo "Prev program killed"
 fi
 
+# build
+go build
+
 if [ ! -d "output" ]; then
   mkdir output
 fi
-CURRENT_DIR=~/home-server
-NOW=$(date '+%Y-%m-%d_%H:%M:%S')
+NOW=$(date '+%Y-%m-%d_%H_%M_%S')
 
-nohup sudo go run $CURRENT_DIR/main.go > output/output_"$NOW".log 2>&1 &
+# run
+nohup sudo bash home-server > output/output_"$NOW".log 2>&1 &
 cat output/output_"$NOW".log
