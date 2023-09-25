@@ -17,10 +17,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func eventJsHandler(w http.ResponseWriter, r *http.Request) {
-	// log
+	// Get url params
 	queries := r.URL.Query()
-	//log.Printf("RequestURI=%s, Header=%v, queries=%v", r.URL.RequestURI(), r.Header, queries)
-
 	baseUrl := "https://analytics.tiktok.com/i18n/pixel/events.js"
 	params := url.Values{}
 	params.Add("sdkid", queries.Get("sdkid"))
@@ -58,6 +56,4 @@ func eventJsHandler(w http.ResponseWriter, r *http.Request) {
 		log.Printf("return body err: %v", err)
 		return
 	}
-
-	log.Printf("Written Header=%v", w.Header())
 }
