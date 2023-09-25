@@ -23,7 +23,9 @@ fi
 NOW=$(date '+%Y-%m-%d_%H_%M_%S')
 
 # run
-mv output.log ./$PREV_OUTPUT_DIR/output_"$NOW".log
+if [ -d "output.log" ]; then
+  mv output.log ./$PREV_OUTPUT_DIR/output_before_"$NOW".log
+fi
 nohup sudo ./home-server > output.log 2>&1 &
 
 sleep 1
