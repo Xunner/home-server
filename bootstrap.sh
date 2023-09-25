@@ -1,5 +1,5 @@
 #! /usr/bin bash
-cd ~/home-server || exit 3
+cd ~/code/home-server || exit 3
 # 查找占用443端口的进程ID
 PREV_PID=$(sudo lsof -t -i:443)
 
