@@ -7,108 +7,11 @@
       ttq.load('CKNOFJ3C77U740699A5G');
       ttq.page();
 
-      ttq.identify({
-          "email": "123@qq.com", // string. The email of the customer if available. It must be hashed with SHA-256 on the client side.
-          "phone_number": "+86111112222", // string. The phone number of the customer if available. It must be hashed with SHA-256 on the client side.
-          "external_id": "<hashed_extenal_id>", // A unique ID from the advertiser such as user or external cookie IDs. It must be hashed with SHA256 on the client side.
-      });
-
       // add this before event code to all pages where PII data postback is expected and appropriate 
       ttq.identify({
           "email": "123@qq.com", // string. The email of the customer if available. It must be hashed with SHA-256 on the client side.
           "phone_number": "+86111112222", // string. The phone number of the customer if available. It must be hashed with SHA-256 on the client side.
-          "external_id": "<hashed_extenal_id>", // A unique ID from the advertiser such as user or external cookie IDs. It must be hashed with SHA256 on the client side.
-      });
-
-      ttq.track('Search', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
-          "query": "my homepage", // string. The word or phrase used to search. Example: "SAVE10COUPON".
-      });
-
-      ttq.track('AddToWishlist', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
-      });
-
-      ttq.track('ClickButton', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
-      });
-
-      ttq.track('AddToCart', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
-      });
-
-      ttq.track('AddPaymentInfo', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
-      });
-
-      ttq.track('InitiateCheckout', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
-      });
-
-      ttq.track('PlaceAnOrder', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
-      });
-
-      ttq.track('CompleteRegistration', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
-      });
-
-      ttq.track('Subscribe', {
-          "contents": [{
-              "content_id": "1197218", // string. ID of the product. Example: "1077218".
-              "content_type": "product", // string. Either product or product_group.
-              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
-          }],
-          "value": 1.03, // number. Value of the order or items sold. Example: 100.
-          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+          "external_id": "123456789", // A unique ID from the advertiser such as user or external cookie IDs. It must be hashed with SHA256 on the client side.
       });
 
       ttq.track('CompletePayment', {
@@ -129,4 +32,4 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '813017460313590');
-    fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=813017460313590&ev=PageView&noscript=1"/></noscript><script type="module" crossorigin src="/assets/index.1223b9c0.js"></script><link rel="stylesheet" href="/assets/index.bcfc57ce.css"><link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head><body class="loading"><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="loader"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div><div class="loading-word"><p class="loading-title" id="loading-title">Benlin(借)的主页</p><span id="loading-text">加载中</span></div></div></div><div id="app"></div><noscript><div style="text-align:center">请开启 JavaScript</div></noscript></body></html>
+    fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=813017460313590&ev=PageView&noscript=1"/></noscript><script type="module" crossorigin src="/assets/index.124514e4.js"></script><link rel="stylesheet" href="/assets/index.3a515a33.css"><link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head><body class="loading"><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="loader"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div><div class="loading-word"><p class="loading-title" id="loading-title">Benlin(借)的主页</p><span id="loading-text">加载中</span></div></div></div><div id="app"></div><noscript><div style="text-align:center">请开启 JavaScript</div></noscript></body></html>
