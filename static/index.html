@@ -3,9 +3,123 @@
         "https://support.dmeng.net/upgrade-your-browser.html?referrer=" + encodeURIComponent(window.location.href)</script><script>!function (w, d, t) {
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++
   )ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://eapig-us.landing.qy0xa8.com/signal-forwarder/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=i+"?sdkid="+e+"&lib="+t;n.onerror=function(){m=document.createElement("script");m.type="text/javascript",m.async=!0,m.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(m,s);};s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)};
-    
+
       ttq.load('CKNOFJ3C77U740699A5G');
       ttq.page();
+
+      ttq.identify({
+          "email": "123@qq.com", // string. The email of the customer if available. It must be hashed with SHA-256 on the client side.
+          "phone_number": "+86111112222", // string. The phone number of the customer if available. It must be hashed with SHA-256 on the client side.
+          "external_id": "<hashed_extenal_id>", // A unique ID from the advertiser such as user or external cookie IDs. It must be hashed with SHA256 on the client side.
+      });
+
+      // add this before event code to all pages where PII data postback is expected and appropriate 
+      ttq.identify({
+          "email": "123@qq.com", // string. The email of the customer if available. It must be hashed with SHA-256 on the client side.
+          "phone_number": "+86111112222", // string. The phone number of the customer if available. It must be hashed with SHA-256 on the client side.
+          "external_id": "<hashed_extenal_id>", // A unique ID from the advertiser such as user or external cookie IDs. It must be hashed with SHA256 on the client side.
+      });
+
+      ttq.track('Search', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+          "query": "my homepage", // string. The word or phrase used to search. Example: "SAVE10COUPON".
+      });
+
+      ttq.track('AddToWishlist', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
+
+      ttq.track('ClickButton', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
+
+      ttq.track('AddToCart', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
+
+      ttq.track('AddPaymentInfo', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
+
+      ttq.track('InitiateCheckout', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
+
+      ttq.track('PlaceAnOrder', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
+
+      ttq.track('CompleteRegistration', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
+
+      ttq.track('Subscribe', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
+
+      ttq.track('CompletePayment', {
+          "contents": [{
+              "content_id": "1197218", // string. ID of the product. Example: "1077218".
+              "content_type": "single", // string. Either product or product_group.
+              "content_name": "Abada", // string. The name of the page or product. Example: "shirt".
+          }],
+          "value": 1.03, // number. Value of the order or items sold. Example: 100.
+          "currency": "USD", // string. The 4217 currency code. Example: "USD".
+      });
     }(window, document, 'ttq');</script><script>!function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
