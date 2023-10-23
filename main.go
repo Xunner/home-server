@@ -12,9 +12,9 @@ func main() {
 
 	initRouter()
 
-	go func() {
-		log.Fatal(http.ListenAndServeTLS(":443", "server.crt", "server.key", nil))
-	}()
+	// go func() {
+	// 	log.Fatal(http.ListenAndServeTLS(":443", "server.crt", "server.key", nil))
+	// }()
 
 	log.Fatal(http.ListenAndServe(":80", nil))
 }
@@ -23,5 +23,4 @@ func initRouter() {
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
 	http.HandleFunc("/hello", helloHandler)
-	http.HandleFunc("/event/js", eventJsHandler)
 }

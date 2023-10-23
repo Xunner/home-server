@@ -1,3 +1,3 @@
 module xunner/home-server
 
-go 1.19
+go 1.16
